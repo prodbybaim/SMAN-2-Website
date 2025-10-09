@@ -1,35 +1,28 @@
 {% extends "base.html" %}
-{% block title %}Home - SMAN 2 Cikpus{% endblock %}
 {% block content %}
-<h1>Articles</h1>
-<div class="pager">
-  {% if page > 1 %}
-  <a href="{{ url_for('home', page=page-1, q=q) }}">Previous</a>
-  {% endif %}
-  <span>Page {{ page }}</span>
-  {% if total > page * 10 %}
-  <a href="{{ url_for('home', page=page+1, q=q) }}">Next</a>
-  {% endif %}
-</div>
-<ul class="articles">
-  {% for a in articles %}
-  <li class="article-item">
-    <a href="{{ url_for('read', slug=a.slug) }}">
-      <h2>{{ a.title }}</h2>
-      <p class="meta">{{ a.created }}</p>
-      <p class="snippet">{{ a.snippet }}</p>
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Selamat datang di SMAN 2 Cikarang Pusat</h1>
+      <p>Website resmi SMAN 2 Cikarang Pusat - berita, pengumuman, galeri, dan kontak.</p>
+      <a class="btn" href="/news">Lihat Pengumuman</a>
+    </div>
+    <img class="hero-img lazyload" data-src="/static/img/school-hero.jpg" alt="Gedung sekolah" src="/static/img/placeholder.png" />
+  </section>
 
-<div class="pager">
-  {% if page > 1 %}
-  <a href="{{ url_for('home', page=page-1, q=q) }}">Previous</a>
-  {% endif %}
-  <span>Page {{ page }}</span>
-  {% if total > page * 10 %}
-  <a href="{{ url_for('home', page=page+1, q=q) }}">Next</a>
-  {% endif %}
-</div>
+  <section class="grid cards">
+    <article class="card">
+      <h3>Berita Terbaru</h3>
+      <p>Ringkasan berita singkat... <a href="/news">Selengkapnya</a></p>
+    </article>
+
+    <article class="card">
+      <h3>Informasi Pendaftaran</h3>
+      <p>Info penting tentang pendaftaran dan jadwal.</p>
+    </article>
+
+    <article class="card">
+      <h3>Galeri</h3>
+      <p>Foto kegiatan siswa dan acara.</p>
+    </article>
+  </section>
 {% endblock %}
